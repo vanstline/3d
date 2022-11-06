@@ -1,0 +1,356 @@
+syntax = "proto3";
+
+package interactive3d_api;
+option go_package = "/interactive3d_api";
+message EmptyResponse{}
+message ListResourcesRequest {
+  //每页数量
+  // @inject_tag: validate:"required"
+  int32 page_size = 1;
+  //页数
+  // @inject_tag: validate:"required"
+  int32 page_num = 2;
+   // 模型id
+  int64 model_id =3;
+  // 模型名称
+  string model_name =4;
+  // 模型类型
+  int32 category_id =5;
+  // 模型标签
+  string tags =6;
+}
+message ResourcesItemRequest {
+  int64 model_id =1;
+  string model_name =2;
+  string model_url =3;
+  float model_size =4;
+  string materials =5;
+  string preview_image =6;
+  string description =7;
+  repeated int32 category_ids =8;
+  // 类型名称
+  string category_ids_name =12;
+  // 标签
+  string tags =9;
+  string extended_properties =10;
+  string created_time =11;
+  // 资源来源。1-系统自建，2-资产中心导入
+  int32 source_type =13;
+  // 资源类型
+  int32 asset_type_id =14;
+  // 资产中台资源id
+  string third_party_id =15;
+  // 模型
+  string lod =16;
+  // 预打包内容
+  string default_packages =17;
+  // 贴图选项
+  string texture_option = 18;
+  // 支持分辨率选项
+  string resolutions =19;
+  // 资产文件
+  string assets_files =20;
+  // 压缩包文件
+  string packages_files =21;
+  
+}
+message ListResourcesResponse {
+  int64 total = 1 [jstype = JS_STRING];
+
+  repeated ResourcesItemRequest list = 2;
+}
+message CreateResourceRequest {
+  // 模型名称
+  // @inject_tag: validate:"required"
+  string model_name =1;
+  // 模型url
+  string model_url =2;
+  // 模型大小 kb
+  int32 model_size =3;
+  // 像素参数
+  // @inject_tag: validate:"omitempty,json"
+  string materials = 4;
+  // 缩略图地址
+  // @inject_tag: validate:"omitempty,json"
+  string preview_image =5;
+  // 描述
+  string description =6;
+  // 模型分类
+  repeated int32 category_ids =7;
+  // 类型 ,参考资源类型接口id
+  int32 asset_type_id =8;
+  // 标签
+  string tags =9;
+  // 扩展字段 json
+  // @inject_tag: validate:"omitempty,json"
+  string extended_properties =10;
+}
+message CreateResourceResponse {
+  // 模型id
+  int64 model_id =1;
+}
+message DeleteResourceByModelIdRequest {
+  // 模型id
+  int64 model_id =1;
+}
+message UpdateResourceRequest {
+  // 模型id
+  // @inject_tag: validate:"required"
+  int64 model_id =1;
+  // 模型名称
+  string model_name =2;
+  // 模型资源url
+  string model_url =3;
+  // 大小
+  float model_size =4;
+  // 下高速参数
+  string materials =5;
+  // 缩略图
+  string preview_image =6;
+  // 资源描述
+  string description =7;
+  // 类型
+  repeated int32 category_ids =8;
+  string tags =9;
+  // @inject_tag: validate:"omitempty,json"
+  string extended_properties =10;
+}
+message CreateResourceUrlRequest {
+  // 模型id
+  // @inject_tag: validate:"required"
+  int64 model_id =1;
+  // 最大访问人数
+  // @inject_tag: validate:"required"
+  int32 concurrent =2;
+  // 开始时间戳
+  int64 start_time =3;
+  // 结束时间戳
+  int64 end_time =4;
+  // 访问密码
+  string pwd =5;
+}
+message CreateResourceUrlResponse {
+  // 模型id
+  int64 id =1;
+  // 模型url
+  string url =2;
+}
+message GetResourceUrlInfoRequest {
+  // 模型id主键
+  // @inject_tag: validate:"required"
+  string url =2;
+}
+message ResourceUrlsItemResponse {
+  // 模型id主键
+  int64 id =1;
+  int64 model_id =2;
+  // 最大访问人数
+  int32 concurrent =3;
+  // 开始时间
+  string start_time =4;
+  // 结束时间
+  string end_time =5;
+  // 访问url
+  string url =6;
+  bool is_pwd =7;
+}
+message GetResourceUrlInfoResponse {
+  ResourceUrlsItemResponse info =1;
+}
+message UpdateResourceUrlRequest {
+  // 模型url 主键
+  // @inject_tag: validate:"required"
+  int64 id =1;
+  // 最大访问人数
+  int32 concurrent =2;
+  // 开始时间戳
+  int64 start_time =3;
+  // 结束时间戳
+  int64 end_time =4;
+  // 访问密码
+  string pwd =5;
+}
+message ListResourceUrlRequest {
+    //每页数量
+  // @inject_tag: validate:"required"
+  int32 page_size = 1;
+  //页数
+  // @inject_tag: validate:"required"
+  int32 page_num = 2;
+  // 模型id
+  int64 model_id =3;
+}
+message ResourceUrlsItemRequest {
+  // 模型id主键
+  int64 id =1;
+  // 最大访问人数
+  int32 concurrent =2;
+  // 开始时间
+  string start_time =3;
+  // 结束时间
+  string end_time =4;
+  // 访问url
+  string url =5;
+}
+message ListResourceUrlResponse {
+  repeated ResourceUrlsItemResponse list= 1;
+  // 总数量
+  int64 total = 2;
+}
+message DeleteResourceUrlRequest {
+  // 模型id
+  // @inject_tag: validate:"required"
+  int64 model_id =2;
+}
+message ValidResourceUrlRequest {
+  // 模型id
+  // @inject_tag: validate:"required"
+  string url =1;
+  string pwd =2;
+}
+message ValidResourceUrlResponse {
+    bool valid =1;
+    string model_url =2;
+}
+message GetResourceInfoRequest {
+  // 模型id
+  // @inject_tag: validate:"required"
+  int64 model_id =1;
+}
+message GetResourceInfoResponse {
+  ResourcesItemRequest info =1;
+}
+message ListCategoryRequest {
+}
+message CategoryItemResponse {
+  // 分类id
+  int64 category_id =1;
+  // 父类 0:顶级
+  int64 parent_id =2;
+  // 分类名称
+  string name =3;
+  // 分类英文名称
+  string name_en =4;
+  // 级别
+  int32 level =5;
+  // 路径
+  string path =6;
+  repeated CategoryItemResponse child =7;
+}
+
+message ListCategoryResponse {
+   repeated CategoryItemResponse list =1;
+}
+message ListAssetsRequest {
+  //每页数量
+  // @inject_tag: validate:"required"
+  int64 page_size = 1;
+  //页数
+  // @inject_tag: validate:"required"
+  int64 page_num = 2;
+  // 资产内部ID/资产名称
+  string asset_id_name = 3;
+  // 资产类型
+  repeated int64 asset_type_ids = 4;
+  // 资产状态 (1 正常，3 重制中, 5 全部)
+  int64 asset_status = 5;
+  // 资产性质 (1 项目资产 2 泛资产)
+  int64 asset_nature = 6;
+
+}
+message  AssetItem {
+  // 资产内部id 
+  string internal_id =1;
+  // 资产名     
+  string name =2;
+  // 预览图
+  string preview_image_url =3;
+  // 是否已经导入
+  int32 is_export =4;
+}
+message  ListAssetsResponse {
+  int64 total = 1 [jstype = JS_STRING];
+
+  repeated AssetItem list = 2;
+}
+
+message ExportAssetByIdRequest {
+  // @inject_tag: validate:"required" 
+  string third_party_id =1;
+  // 是否重新导入 1-重新导入。默认0 导入
+  int32 re_import =2;
+}
+message ListAssetTypesRequest {
+}
+message AssetTypeItem {
+  int64 id  =1;
+  // 类型名称
+  string name =2;
+  string name_en =3;
+  // 简称
+  string code =4;
+}
+message ListAssetTypesResponse {
+   repeated AssetTypeItem list=1;
+}
+message AssetLabel {
+  int64 id = 1;
+  // 中文名
+  string name = 2;
+  // 英文名
+  string name_en = 3;
+  // 搜索 1 支持 2 不支持
+  int64  is_search = 4;
+}
+message ListAssetLabelsRequest {
+  //每页数量
+  // @inject_tag: validate:"required"
+  int64 page_size = 1;
+  //页数
+  // @inject_tag: validate:"required"
+  int64 page_num = 2;
+  int64  id = 3;
+  // 中文名
+  string name = 4;
+  // 英文名
+  string name_en = 5;
+  // 搜索 1 支持 2 不支持
+  int64  is_search = 6;
+}
+message ListAssetLabelsResponse {
+  repeated AssetLabel list = 1;
+  int64 count = 2;
+}
+message GetAssetLabelsByIdsRequest {
+  repeated int64 id = 1;
+}
+message GetAssetLabelsByIdsResponse {
+  repeated AssetLabel list = 1;
+}
+message DeleteBatchAssetsRequest {
+   repeated int64 model_ids =1;
+}
+service Interactive3d_apiService {
+  // 资源管理
+  rpc ListResources(ListResourcesRequest) returns(ListResourcesResponse);                   //   资源列表
+  rpc CreateResource(CreateResourceRequest) returns(CreateResourceResponse);                //   资源创建
+  rpc GetResourceInfo(GetResourceInfoRequest) returns(GetResourceInfoResponse);             //   资源详情
+  rpc DeleteResourceByModelId(DeleteResourceByModelIdRequest) returns(EmptyResponse);       //   资源删除
+  rpc DeleteBatchAssets(DeleteBatchAssetsRequest) returns(EmptyResponse);                   //   批量删除资源
+  rpc UpdateResource(UpdateResourceRequest) returns(EmptyResponse);                         //   资源修改
+  
+  // 资源url管理
+  rpc CreateResourceUrl(CreateResourceUrlRequest) returns(CreateResourceUrlResponse);       //   资源生成url
+  rpc GetResourceUrlInfo(GetResourceUrlInfoRequest) returns(GetResourceUrlInfoResponse);    //   资源url详情
+  rpc UpdateResourceUrl(UpdateResourceUrlRequest) returns(EmptyResponse);                   //   更新url
+  rpc ListResourceUrl(ListResourceUrlRequest) returns(ListResourceUrlResponse);             //   资源生url列表
+  rpc DeleteResourceUrl(DeleteResourceUrlRequest) returns(EmptyResponse);                   //   删除
+  rpc ValidResourceUrl(ValidResourceUrlRequest) returns(ValidResourceUrlResponse);          //   验证生成url
+
+  rpc ListAssets(ListAssetsRequest) returns(ListAssetsResponse);                            //   获取资产中心资源列表
+  rpc ListCategory(ListCategoryRequest) returns(ListCategoryResponse);                      //   分类列表
+  rpc ExportAssetById(ExportAssetByIdRequest) returns(EmptyResponse);                       //   资源导入
+  rpc ListAssetTypes(ListAssetTypesRequest) returns(ListAssetTypesResponse);                //   获取资产类型列表
+  rpc ListAssetLabels(ListAssetLabelsRequest) returns(ListAssetLabelsResponse);             //   获取资产标签列表
+  rpc GetAssetLabelsByIds(GetAssetLabelsByIdsRequest) returns(GetAssetLabelsByIdsResponse); //   通过id获取资产标签列表
+}

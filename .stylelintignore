@@ -1,0 +1,7 @@
+*.js
+*.jsx
+*.tsx
+*.ts
+*.proto
+*.md
+/src/assets/icon

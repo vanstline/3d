@@ -1,0 +1,23 @@
+image: prod-harbor-registry.cn-shanghai.cr.aliyuncs.com/common/node:14-alpine
+
+stages:
+    - lint
+
+lint-job:
+    only:
+        - merge_requests
+    stage: lint
+    before_script: []
+    script:
+        - npm install
+        - npm run stylelint
+        - npm run eslint
+
+smoke-job:
+    only:
+        - merge_requests
+    stage: lint
+    before_script: []
+    script:
+        - npm install
+        - npm run build:prod

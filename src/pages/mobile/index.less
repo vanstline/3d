@@ -1,0 +1,127 @@
+/* stylelint-disable font-family-no-missing-generic-family-keyword */
+@root: imp-3d-mobile;
+@textColor: rgba(0, 0, 0, 0.75);
+
+@background-linear-gradient: linear-gradient(
+    18deg,
+    #4b98ec -2.31%,
+    #60b179 40.56%,
+    #d7d562 89.38%,
+    #f8dd5b 117.54%
+);
+
+.@{root}-wrap {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow: hidden;
+    color: @textColor;
+    background-color: #fff;
+
+    .@{root}-header {
+        margin-top: 13px;
+        font-size: 18px;
+        font-family: "Noto-Sans-SC";
+        text-align: center;
+    }
+
+    .@{root}-form {
+        display: flex;
+        justify-content: center;
+        margin: 24px 0;
+    }
+
+    .@{root}-view {
+        height: calc(100vh - 210px);
+    }
+
+    .@{root}-desc {
+        position: fixed;
+        right: 24px;
+        bottom: 64px;
+        left: 24px;
+        padding: 16px;
+        color: #fff;
+        background-color: rgba(0, 0, 0, 0.65);
+        border-radius: 8px;
+
+        .@{root}-desc-header {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+
+    .@{root}-desc-btn {
+        position: fixed;
+        right: 16px;
+        bottom: 36px;
+    }
+
+    .ant-select-selection-item,
+    .ant-select-item-option-content,
+    .ant-form-item-control-input-content {
+        color: transparent;
+        font-size: 12px;
+        background: @background-linear-gradient;
+        background-clip: text;
+    }
+
+    .ant-select-arrow {
+        color: @textColor;
+    }
+
+    .ant-select:not(.ant-select-customize-input) .ant-select-selector {
+        border: 1px solid;
+        border-image-source: @background-linear-gradient;
+        border-image-slice: 1;
+    }
+}
+
+.@{root}-form-item {
+    width: 35%;
+    font-size: 12px;
+
+    .ant-select {
+        width: calc(100% - 32px);
+    }
+
+    &:nth-child(2) {
+        margin-left: 12px;
+    }
+
+    .ant-form-item-label > label {
+        color: #ccc;
+    }
+}
+
+.@{root}-form-item.@{root}-form-item-only {
+    width: 60%;
+    font-size: 12px;
+}
+
+.@{root}-desc {
+    .@{root}-desc-header {
+        .@{root}-desc-title {
+            font-weight: 500;
+            font-family: "Noto-Sans-SC";
+        }
+
+        .@{root}-desc-assets {
+            display: flex;
+            align-items: center;
+            color: #ffed96;
+            font-size: 12px;
+        }
+
+        .@{root}-desc-close {
+            margin-left: 12px;
+        }
+    }
+
+    .@{root}-desc-text {
+        margin-top: 15px;
+        font-size: 12px;
+        line-height: 15px;
+    }
+}

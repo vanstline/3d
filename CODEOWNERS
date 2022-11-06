@@ -1,0 +1,17 @@
+[baseConfig Owners]
+.editorconfig @pengyuying @kongyu
+.eslintignore @pengyuying @kongyu
+.eslintrc.js @pengyuying @kongyu
+.eslintrc @pengyuying @kongyu
+.eslintrc.prod.js @pengyuying @kongyu
+.gitlab-ci.yml @pengyuying @kongyu
+.npmrc @pengyuying @kongyu
+.prettierignore @pengyuying @kongyu
+.prettierrc @pengyuying @kongyu
+.stylelintignore @pengyuying @kongyu
+.stylelintrc.js @pengyuying @kongyu
+babel.config.js @pengyuying @kongyu
+.babelrc @pengyuying @kongyu
+package.json @pengyuying @kongyu
+/config/ @pengyuying @kongyu
+/scripts/ @pengyuying @kongyu

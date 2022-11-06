@@ -1,0 +1,54 @@
+{
+    "data": [
+         {
+            "name": "蓝闪蝴蝶 - 带动画",
+            "baseUrl": "assets/model/hudie/",
+            "fileName": "hudie",
+            "type": "glb",
+            "size": 7.4,
+            "desc": ""
+        },
+        {
+            "name": "大蓝闪蝶",
+            "baseUrl": "assets/model/butterfly/",
+            "fileName": "BUTTERFLY",
+            "type": "mtl",
+            "size": {
+                "2k": 3.7,
+                "1024": 1.16,
+                "512": 0.44
+            }
+        },
+        {
+            "name": "高达",
+            "baseUrl": "assets/model/gundam/",
+            "fileName": "freedom",
+            "type": "mtl",
+            "size": 0.391
+        },
+        {
+            "name": "龙首",
+            "baseUrl": "assets/model/dragon/",
+            "fileName": "head",
+            "type": "stl",
+            "size": 24,
+            "desc": ""
+        },
+        {
+            "name": "马首",
+            "baseUrl": "assets/model/horse/",
+            "fileName": "head",
+            "type": "stl",
+            "size": 4,
+            "desc": ""
+        },
+        {
+            "name": "人体模型",
+            "baseUrl": "assets/model/human/",
+            "fileName": "dancing",
+            "type": "fbx",
+            "size": 4,
+            "desc": ""
+        }
+    ]
+}

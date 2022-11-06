@@ -1,0 +1,33 @@
+
+// {
+//     "name": "椅子",
+//     "baseUrl": "assets/model/test/",
+//     "fileName": "chair",
+//     "type": "fbx",
+//     "size": 4,
+//     "desc": ""
+// },
+// {
+//     "name": "板凳",
+//     "baseUrl": "assets/model/test/",
+//     "fileName": "bench",
+//     "type": "fbx",
+//     "size": 4,
+//     "desc": ""
+// },
+// {
+//     "name": "跳舞",
+//     "baseUrl": "assets/model/test/",
+//     "fileName": "dancing",
+//     "type": "fbx",
+//     "size": 4,
+//     "desc": ""
+// },
+// {
+//     "name": "兔子",
+//     "baseUrl": "assets/model/test/",
+//     "fileName": "bunny",
+//     "type": "fbx",
+//     "size": 4,
+//     "desc": ""
+// }

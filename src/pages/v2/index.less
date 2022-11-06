@@ -1,0 +1,184 @@
+/* stylelint-disable no-duplicate-selectors */
+/* stylelint-disable declaration-no-important */
+@root: imp-3d;
+@textColor: #262626;
+@drawerWidth: 30%;
+
+.imp-theme {
+    background:
+        linear-gradient(
+            68.43deg,
+            #4b98ec -2.31%,
+            #60b179 40.56%,
+            #d7d562 89.38%,
+            #f8dd5b 117.54%
+        ),
+        linear-gradient(0deg, #fafafa, #fafafa);
+}
+
+.@{root}-wrap {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 980px;
+    min-height: 100vh;
+    overflow-x: auto;
+    color: #fff;
+    background-color: #000;
+
+    .@{root}-header {
+        position: sticky;
+        top: 0;
+        z-index: 0;
+        font-size: 20px;
+        line-height: 60px;
+        text-align: center;
+        .imp-theme;
+    }
+
+    .ant-form-item-label > label {
+        color: #c6c6c6;
+    }
+
+    .ant-select-selection-item,
+    .ant-select-item-option-content,
+    .ant-form-item-control-input-content,
+    .ant-select-arrow {
+        color: #c6c6c6;
+    }
+
+    .ant-select:not(.ant-select-customize-input) .ant-select-selector {
+        background-color: #000;
+        border: 1px solid;
+        border-image-source:
+            linear-gradient(
+                18deg,
+                #4b98ec -2.31%,
+                #60b179 40.56%,
+                #d7d562 89.38%,
+                #f8dd5b 117.54%
+            );
+        border-image-slice: 1;
+    }
+
+    border: 1px solid;
+}
+
+.@{root}-pj-main {
+    position: relative;
+    display: flex;
+    flex: auto;
+    padding: 25px;
+    padding-bottom: 54px;
+    overflow: hidden;
+
+    .@{root}-pj-title {
+        position: absolute;
+        top: 26px;
+        width: 100%;
+        margin-left: -20px;
+        font-size: 16px;
+        line-height: 30px;
+        text-indent: 20px;
+    }
+
+    .@{root}-pj-content {
+        position: relative;
+        display: flex;
+        width: 100%;
+        overflow: hidden;
+
+        .@{root}-view-btn {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 34px;
+            padding-top: 21px;
+            color: #000 70%;
+            font-size: 14px;
+            text-align: center;
+            background-color: #e1e1e1;
+            cursor: pointer;
+        }
+    }
+
+    .@{root}-pj-footer {
+        position: absolute;
+        bottom: 25px;
+        width: 100%;
+        color: #c6c6c6;
+        font-size: 12px;
+        line-height: 16px;
+    }
+
+    .@{root}-pj-drawer {
+        position: absolute;
+        top: 0;
+        right: calc(0% - @drawerWidth);
+        bottom: 0;
+        width: @drawerWidth;
+        background-color: #161616;
+        opacity: 0.6;
+        transition: right 1s;
+    }
+
+    .@{root}-pj-drawer-show {
+        right: 0;
+    }
+}
+
+.@{root}-pj-content {
+
+    .@{root}-pj-view {
+        position: absolute;
+        top: 0;
+        right: 34px;
+        bottom: 0;
+        left: 0;
+        overflow: hidden;
+        // background:
+        //     linear-gradient(
+        //         180deg,
+        //         #fff 0%,
+        //         #e7e7e7 43.94%,
+        //         #dcdada 100%,
+        //         #e7e7e7 58.04%,
+        //         #fff 100%
+        //     );
+        background-color: #131313;
+    }
+}
+
+.@{root}-pj-drawer {
+    display: flex;
+    flex-direction: column;
+    color: #c6c6c6;
+
+    .@{root}-pj-drawer-header,
+    .@{root}-pj-drawer-main,
+    .@{root}-pj-drawer-footer {
+        padding: 0 20px;
+    }
+
+    .@{root}-pj-drawer-header {
+        height: 50px;
+        line-height: 50px;
+
+        span {
+            cursor: pointer;
+        }
+    }
+
+    .@{root}-pj-drawer-footer {
+        height: 90px;
+        line-height: 90px;
+    }
+
+    .@{root}-pj-drawer-main {
+        flex: 1;
+        padding-top: 24px;
+        border-top: 1px solid @textColor;
+        border-bottom: 1px solid @textColor;
+    }
+}
